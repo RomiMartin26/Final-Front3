@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useContext } from "react";
-import { ThemeContext, useThemeContext } from "../Components/contexts/ThemeContext";
+//import { useThemeContext } from "react";
+//import { ThemeContext, useThemeContext } from "../Components/contexts/ThemeContext";
 import Card from "../Components/Card";
 import { Link } from "react-router-dom";
 
@@ -9,9 +9,12 @@ const Home = (props) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
 
-  const {contextTheme} = useThemeContext()
+  //const {contextTheme} = useThemeContext()
+  //const {contextTheme, setContextTheme} = useThemeContext ();
 
- 
+  // console.log(contextTheme);
+
+   
   async function fetchData() {
     setLoading(true);
     let jsonData;
@@ -40,25 +43,26 @@ const Home = (props) => {
 
   return (
     <>
-       <div className={contextTheme}>
+       {/* <div className={contextTheme}>
         <p>Theme actual: {contextTheme}</p>
         <button onClick={contextTheme}>Cambiar Tema</button>
         
-      </div>  
-     <div className={contextTheme}>
+      </div>  */} 
+     {/* <div className={contextTheme}> */}
+     <div>
         {error ? <p>{error}</p> : null} 
 
         {data.map((usuario) => (
-          <div key={usuario.id} >
+          <div  key={usuario.id} >
           <Card
-            name={usuario.name}
+            name= {usuario.name}
             username={usuario.username}
             id={usuario.id}
             img={"./img/doctor.jpg"}
             // key={usuario.id}
           />
           <Link to={`/dentista/${usuario.id}`}>
-          <button>Ver detalle</button>
+          <button>Ver detalle  </button>
           </Link>
           </div>
         ))}

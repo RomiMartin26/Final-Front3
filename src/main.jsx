@@ -6,11 +6,11 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeContextProvider } from './Components/contexts/ThemeContext.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <ThemeContextProvider>
+  <React.StrictMode>    
     <BrowserRouter>
-    <App />
+    <ThemeContextProvider>
+      <App />
+    </ThemeContextProvider>    
     </BrowserRouter>
-    </ThemeContextProvider>
   </React.StrictMode>,
 )

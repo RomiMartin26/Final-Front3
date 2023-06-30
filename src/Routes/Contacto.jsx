@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-// import Form from "../Components/Form";
+import styles from "./Contacto.module.css";
+
 
 const Contacto = () => {
   const [name, setName] = useState("");
@@ -23,11 +24,11 @@ const Contacto = () => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>Contacto</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Nombre completo:</label>
+          <label className={styles.label}>Nombre completo:</label>
           <input
             type="text"
             value={name}
@@ -35,16 +36,16 @@ const Contacto = () => {
           />
         </div>
         <div>
-          <label>Email:</label>
+          <label className={styles.label}>Email:</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <button type="submit">Enviar</button>
-        {error && <p>{error}</p>}
-        {success && <p>{success}</p>}
+        <button type="submit" className={styles.button}>Enviar</button>
+        {error && <p className={styles.error}>{error}</p>}
+        {success && <p className={styles.success}>{success}</p>}
       </form>
     </div>
   );
