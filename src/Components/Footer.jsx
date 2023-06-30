@@ -10,8 +10,8 @@ const Footer = () => {
             <div className={styles.icons}>
             <img src="./img/ico-facebook.png" width="20px" alt="Icono Facebook" />
             <img src="./img/ico-instagram.png" width="20px" alt="Icono Instagram" />
-            <image src="./img/ico-tiktok.png" width="20px" alt="Icono Tiktok" />
-            <image src="./img/ico-whatsapp.png" width="20px" alt="Icono" /> 
+            <img src="./img/ico-tiktok.png" width="20px" alt="Icono Tiktok" />
+            <img src="./img/ico-whatsapp.png" width="20px" alt="Icono" /> 
             </div>
         </footer>
     )

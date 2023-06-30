@@ -1,10 +1,10 @@
-//import { useContext } from "react";
+import { useContext } from "react";
 import styles from './Navbar.module.css';
 //import { useThemeContext } from "./contexts/ThemeContext";
 import { Link } from "react-router-dom";
 //import ReactSwitch from "react-switch";
 //import { useState } from 'react';
-
+import { ThemeContext } from "../Components/contexts/ThemeContext";
 
 const Navbar = () => {
   //const {contextTheme} = useThemeContext()
@@ -17,6 +17,8 @@ const Navbar = () => {
     setChecked(nextChecked)
     console.log(nextChecked)
   } */
+
+  const {theme, toggleTheme} = useContext(ThemeContext)
 
   return (
     <>
@@ -36,7 +38,7 @@ const Navbar = () => {
          id="material-switch"
 
          />       */}
-        <nav className={styles.navbar}>
+        <nav className={`${styles.navbar} ${theme === "dark" ? styles.themeDark : styles.themeLight}`}>
           <div className="navbar-container">
         <ul className='list'>
           <li>
@@ -50,6 +52,10 @@ const Navbar = () => {
             <Link to="/Contacto">Contacto</Link>
           </li>
         </ul>
+        <div> 
+          <button onClick={toggleTheme}>Cambiar Tema</button>
+          <p> Tema actual: {theme}</p>
+        </div>
         {/* <div >
         <button onClick={contextTheme}>Cambiar Tema</button>
           <button onClick={() => theme.changeValue()}>Cambiar tema</button>

@@ -34,3 +34,13 @@
 .card .button:hover{
     background-color: #ff6a00;
 }
+
+.themeDarkCard {
+    background-color: #4c5669;
+    color: rgb(120, 120, 246);
+  }
+
+.themeLightCard {
+    background-color: #d3eff7;
+    color: #0d3f67;
+  }

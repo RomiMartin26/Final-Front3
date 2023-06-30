@@ -18,14 +18,26 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-#Dark {
+.theme-dark {
   background-color: #282c34;
   color: rgb(120, 120, 246);
 }
-#Light {
+  .theme-dark a {
+    color: #809820;
+  }
+  .theme-dark a:hover {
+    color: #bed170;
+  }
+.theme-light {
   background-color: #f2f4f6;
   color: #0d3f67;
 }
+  .theme-light a {
+    color: #3c4bd1;
+  }
+  .theme-light a:hover {
+    color: #738cdf;
+  }
 
 @keyframes logo-spin {
   from {

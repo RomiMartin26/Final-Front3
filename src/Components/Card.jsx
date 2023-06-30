@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
+import { useContext } from "react";
 import styles from "./Card.module.css";
+import { ThemeContext } from "../Components/contexts/ThemeContext";
 
 const Card = ({ img, name, username, id }) => {
   const [isFav, setIsFav] = useState(false);
+
+  const {theme} = useContext(ThemeContext);
 
   const addFavorito = () => {
     const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
@@ -22,8 +26,10 @@ const Card = ({ img, name, username, id }) => {
   };
 
   return (
-    <div className={styles.card} key={id}>
-      <img src={img} alt={name} width="150px" />
+    <>    
+    {/* <div className={styles.card} key={id}> */}
+    <div className={`${styles.card} ${theme === "dark" ? styles.themeDarkCard : styles.themeLightCard }`} key={id} >
+      <img src={img} alt={name} width="100px" />
       <h3 className={styles.title}>{name}</h3>
       <p className={styles.description}>Username: {username}</p>
       <p>ID: {id}</p>
@@ -32,6 +38,7 @@ const Card = ({ img, name, username, id }) => {
         {isFav ? "Remove Fav" : "Add Fav"}
       </button>
     </div>
+    </>
   );
 };
 export default Card;

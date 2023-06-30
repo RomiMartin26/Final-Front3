@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
@@ -7,14 +8,16 @@ import Favoritos from "./Routes/Favoritos";
 import Home from "./Routes/Home";
 import Dentista from "./Routes/Dentista";
 import "./App.css";
-import {useThemeContext} from "./Components/contexts/ThemeContext";
+import {ThemeContextProvider} from "./Components/contexts/ThemeContext";
+import { ThemeContext } from "./Components/contexts/ThemeContext";
 import ReactSwitch from "react-switch";
 
 
 const App =() => {
 
-  // const {contextTheme} = useThemeContext()
-  const {contextTheme, setContextTheme} = useThemeContext ();
+  //const {themeContext, toggleTheme} = useContext(ThemeContext)
+
+  /* const {contextTheme, setContextTheme} = ThemeContext ();
 
   const [checked, setChecked] =useState(false)
   
@@ -22,13 +25,15 @@ const App =() => {
     setContextTheme ((state)=> (state === 'Light' ? 'Dark' : 'Light'))
     setChecked(nextChecked)
     console.log(nextChecked)
-  }
+  } */
 
+  const {theme, toggleTheme} = useContext(ThemeContext)
   
   return (
     <>
-    {/* < ThemeProvider   > */}
-      <div id ={contextTheme}>
+    {/* < ThemeContextProvider   >  */}
+
+      {/* <div id ={contextTheme}>
       <p>{contextTheme} Tema</p>
         <ReactSwitch
           onChange={handleSwitch}
@@ -44,11 +49,12 @@ const App =() => {
           width={48}
           className="react-switch"
           id="material-switch"
+ */}
+          {/* /> */}
+        <div className={`${theme === "dark" ? "theme-dark" : "theme-light" }`}>
 
-          />
-                
          <Navbar /> 
-         
+        <div className="content"> 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Contacto" element={<Contacto />} />
@@ -58,8 +64,10 @@ const App =() => {
         </Routes>
         <p>Nuestros Odontologos </p>
         <Footer />
-        </div>
-        {/* </ThemeProvider> */}
+        </div> 
+        
+        </div>  
+         {/* </ThemeContextProvider>  */}
       
     </>
   );
