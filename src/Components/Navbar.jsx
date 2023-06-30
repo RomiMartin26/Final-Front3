@@ -39,27 +39,28 @@ const Navbar = () => {
 
          />       */}
         <nav className={`${styles.navbar} ${theme === "dark" ? styles.themeDark : styles.themeLight}`}>
-          <div className="navbar-container">
-        <ul className='list'>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/Favoritos">Dentistas Favoritos</Link>
-          </li>
+        <div className={styles.navbar_container}>
+          <ul className='list'>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/Favoritos">Dentistas Favoritos</Link>
+            </li>
 
-          <li>
-            <Link to="/Contacto">Contacto</Link>
-          </li>
-        </ul>
-        <div> 
-          <button onClick={toggleTheme}>Cambiar Tema</button>
-          <p> Tema actual: {theme}</p>
-        </div>
-        {/* <div >
-        <button onClick={contextTheme}>Cambiar Tema</button>
-          <button onClick={() => theme.changeValue()}>Cambiar tema</button>
-        </div> */}
+            <li>
+              <Link to="/Contacto">Contacto</Link>
+            </li>
+          </ul>
+          <div className={styles.btnTheme}> 
+            {/* <button onClick={toggleTheme}>{theme === "dark" ? "🌞"  : "🌚" }</button> */}
+            <span onClick={toggleTheme}>{theme === "dark" ? "🌞"  : "🌚" }</span>
+            {/* <p> Tema actual: {theme}</p> */}
+          </div>
+          {/* <div >
+          <button onClick={contextTheme}>Cambiar Tema</button>
+            <button onClick={() => theme.changeValue()}>Cambiar tema</button>
+          </div> */}
         </div>
         </nav>
     </>

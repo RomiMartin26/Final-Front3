@@ -47,10 +47,10 @@ const Home = () => {
 
   return (
     <>
-      <div>
+      {/* <div>
         <button onClick={toggleTheme}>Cambiar Tema</button>
         <p> Tema actual: {theme}</p>
-        </div>
+      </div> */}
 
         {loading ? (
         <div> Cargando ...</div>
@@ -68,11 +68,11 @@ const Home = () => {
             id={usuario.id}
             img={"./img/doctor.jpg"}
           />
-          <div className={styles.buttonContainer}>
+          {/* <div className={styles.buttonContainer}>
           <Link to={`/dentista/${usuario.id}`}>
           <button className={styles.button}>Ver detalle  </button>
           </Link>
-          </div>
+          </div> */}
           </div>
         ))}
         </div>
