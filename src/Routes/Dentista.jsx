@@ -35,7 +35,7 @@ const Dentista = () => {
       <h1>Detalle del dentista {id}</h1>
       {user && (
         <div>
-          <img src="./img/doctor.png" alt="Doctor-logo" />
+          <img src="../../img/doctor.jpg" width="200px" alt="Doctor-logo" />
           <p>Name: {user.name}</p>
           <p>Email: {user.email}</p>
           <p>Teléfono: {user.phone}</p>

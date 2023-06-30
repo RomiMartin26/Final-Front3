@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useContext } from "react";
-import { ThemeContext } from "../Components/contexts/ThemeContext";
+import { ThemeContext, useThemeContext } from "../Components/contexts/ThemeContext";
 import Card from "../Components/Card";
 import { Link } from "react-router-dom";
 
@@ -9,7 +9,7 @@ const Home = (props) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
 
-  const theme = useContext(ThemeContext);
+  const {contextTheme} = useThemeContext()
 
  
   async function fetchData() {
@@ -40,20 +40,21 @@ const Home = (props) => {
 
   return (
     <>
-       <div className={theme.value}>
-        <p>Theme actual: {theme.value}</p>
-        <button onClick={theme.changeValue}>Cambiar Tema</button>
+       <div className={contextTheme}>
+        <p>Theme actual: {contextTheme}</p>
+        <button onClick={contextTheme}>Cambiar Tema</button>
         
       </div>  
-     <div className={theme.value}>
+     <div className={contextTheme}>
         {error ? <p>{error}</p> : null} 
 
         {data.map((usuario) => (
-          <div key={usuario.id}>
+          <div key={usuario.id} >
           <Card
             name={usuario.name}
             username={usuario.username}
             id={usuario.id}
+            img={"./img/doctor.jpg"}
             // key={usuario.id}
           />
           <Link to={`/dentista/${usuario.id}`}>
@@ -61,11 +62,11 @@ const Home = (props) => {
           </Link>
           </div>
         ))}
-        <div>Home</div>
+        {/* <div>Home</div>
 
         <button disabled={loading} onClick={fetchData}>
           Fetch Data
-        </button>
+        </button> */}
       </div>
     </>
   );
