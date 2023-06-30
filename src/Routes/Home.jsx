@@ -4,7 +4,7 @@ import { useContext, useEffect } from "react";
 import Card from "../Components/Card";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../Components/contexts/ThemeContext";
-
+import styles from "./Home.module.css";
 
 const Home = () => {
   //const [data, setData] = useState([]);
@@ -47,53 +47,40 @@ const Home = () => {
 
   return (
     <>
-       {/* <div className={contextTheme}>
-        <p>Theme actual: {contextTheme}</p>
-        <button onClick={contextTheme}>Cambiar Tema</button>
-        
-      </div>  */} 
-     {/* <div className={contextTheme}> */}
-     {/* <div> */}
-       {/* {error ? <p>{error}</p> : null}  */}
-        <div> 
-          <button onClick={toggleTheme}>Cambiar Tema</button>
-          <p> Tema actual: {theme}</p>
+      <div>
+        <button onClick={toggleTheme}>Cambiar Tema</button>
+        <p> Tema actual: {theme}</p>
         </div>
 
         {loading ? (
-          <div> Cargando ...</div>
+        <div> Cargando ...</div>
         ) : error ? (
           <div>Error: {error}</div>
         ) : (
-          <div>
-        
-        <div> {/* display flow flex*/}
-
+          
+        <div className={styles.container}>
+         
         {data.map((usuario) => (
-          <div  key={usuario.id} >   {/*  row */}
+          <div  key={usuario.id} className={styles.card} >   
           <Card
             name= {usuario.name}
             username={usuario.username}
             id={usuario.id}
             img={"./img/doctor.jpg"}
-            // key={usuario.id}
           />
+          <div className={styles.buttonContainer}>
           <Link to={`/dentista/${usuario.id}`}>
-          <button>Ver detalle  </button>
+          <button className={styles.button}>Ver detalle  </button>
           </Link>
           </div>
+          </div>
         ))}
-        
         </div>
-        {/* <div>Home</div>
-
-        <button disabled={loading} onClick={fetchData}>
-          Fetch Data
-        </button> */}
-      </div>
-        )}
+        
+      
+      )}
     </>
-  );
+  )
 };
 
 export default Home; 
