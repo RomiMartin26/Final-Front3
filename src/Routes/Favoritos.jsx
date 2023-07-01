@@ -14,12 +14,6 @@ const Favoritos = () => {
     loadFavorites();
   }, []);
 
-  const removeFavorites = (id) => {
-    const updateFavorites = favorites.filter((favorite) => favorite.id !== id);
-    setFavorites(updateFavorites);
-    localStorage.setItem("favoritos", JSON.stringify(updateFavorites));
-  };
-
   return (
     <>
       <h1>Favoritos</h1>
@@ -31,7 +25,6 @@ const Favoritos = () => {
               username={favorite.username}
               id={favorite.id}
               img={"./img/doctor.jpg"}
-              onRemoveFavorite={removeFavorites}
             />
           </div>
         ))}

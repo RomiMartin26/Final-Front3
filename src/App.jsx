@@ -28,8 +28,7 @@ const App = () => {
 
   return (
     <>
-      {/* < ThemeContextProvider   >  */}
-
+    {/* Prueba con switch */}
       {/* <div id ={contextTheme}>
       <p>{contextTheme} Tema</p>
         <ReactSwitch
