@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ThemeContext } from "../Components/contexts/ThemeContext";
 
 const Navbar = () => {
+  
   // Probe con Switch
   //const {contextTheme} = useThemeContext()
   // const {contextTheme, setContextTheme} = useThemeContext ()
