@@ -53,8 +53,8 @@ const Navbar = () => {
             </li>
           </ul>
           <div className={styles.btnTheme}> 
-            {/* <button onClick={toggleTheme}>{theme === "dark" ? "🌞"  : "🌚" }</button> */}
-            <span onClick={toggleTheme}>{theme === "dark" ? "🌞"  : "🌚" }</span>
+            <button onClick={toggleTheme}>{theme === "dark" ? "🌞"  : "🌚" }</button>
+            {/* <span onClick={toggleTheme}>{theme === "dark" ? "🌞"  : "🌚" }</span> */}
             {/* <p> Tema actual: {theme}</p> */}
           </div>
           {/* <div >

@@ -5,16 +5,20 @@ import { ThemeContext } from "../Components/contexts/ThemeContext";
 import { Link } from "react-router-dom";
 
 const Card = ({ img, name, username, id }) => {
-  const [isFav, setIsFav] = useState(false);
+
+  const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+  let enFavoritos = favoritos.some((favorito) => favorito.id === id);
+
+  const [isFav, setIsFav] = useState(enFavoritos); //(false);
 
   const {theme} = useContext(ThemeContext);
 
   const addFavorito = () => {
     const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
-    setIsFav(favoritos.some((favorito) => favorito.id === id));
+    let enFavoritos = favoritos.some((favorito) => favorito.id === id);
 
-    if (isFav) {
+    if (enFavoritos) { //  (isFav) {
       const eliminarFav = favoritos.filter((favorito) => favorito.id !== id);
       localStorage.setItem("favoritos", JSON.stringify(eliminarFav));
       setIsFav(false);
@@ -34,7 +38,7 @@ const Card = ({ img, name, username, id }) => {
       <p className={styles.description}>Username: {username}</p>
       <p>ID: {id}</p>
       <button className={styles.button} onClick={addFavorito} >
-        ❤️
+        {isFav ? "❤️  " : "🤍  "}
         {isFav ? "Remove Fav" : "Add Fav"}
       </button>
       <div className={styles.buttonContainer}>

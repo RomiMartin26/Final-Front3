@@ -84,7 +84,12 @@
 
 .btnTheme {
     position:absolute;
-    top: 2em;
+    top: 1.6em;
     right: -3em;
     cursor:pointer;
+}
+
+.btnTheme button {
+    background-color: gray;
+    padding: .3em
 }
