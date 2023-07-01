@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Contacto.module.css";
 
-
 const Contacto = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -33,6 +32,7 @@ const Contacto = () => {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            className={styles.input}
           />
         </div>
         <div>
@@ -41,9 +41,12 @@ const Contacto = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className={styles.input}
           />
         </div>
-        <button type="submit" className={styles.button}>Enviar</button>
+        <button type="submit" className={styles.button}>
+          Enviar
+        </button>
         {error && <p className={styles.error}>{error}</p>}
         {success && <p className={styles.success}>{success}</p>}
       </form>

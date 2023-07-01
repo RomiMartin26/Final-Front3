@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-/* import Card from "../Components/Card";
-import Dentista from "./Dentista"; */
+import Card from "../Components/Card";
+import styles from "./Favoritos.module.css";
 
 const Favoritos = () => {
   const [favorites, setFavorites] = useState([]);
@@ -21,49 +21,23 @@ const Favoritos = () => {
   };
 
   return (
-    <div>
-      <h1>Favoritos</h1>
-      <ul>
-        {favorites.map((favorite, index) => (
-          <li key={`$favorite.id}-${index}`}>
-            <span>{favorite.name}</span> - {favorite.username}
-            <button onClick={() => removeFavorites(favorite.id)}>
-              Eliminar Fav
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-
-  /* const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-
-  console.log(favoritos, "favoritos")
-
-  return (
     <>
-    <div>
-      Favoritos:
-      {favoritos.map((dentista) => (
-      <span key={dentista.id}>{dentista.name}, </span>
-      ))}
-      </div>
-      <h1>Dentistas Favoritos</h1>
-      <div>
-        {favoritos.map((dentista) => (
-         // console.log(dentista, "dentista")
-           <Card 
-            key={dentista.id}>
-            name={dentista.name}
-            username={dentista.username}
-            id={dentista.id}
-          </Card> 
-        )) }
-        
+      <h1>Favoritos</h1>
+      <div className={styles.container}>
+        {favorites.map((favorite, index) => (
+          <div key={`$favorite.id}-${index}`} className={styles.card}>
+            <Card
+              name={favorite.name}
+              username={favorite.username}
+              id={favorite.id}
+              img={"./img/doctor.jpg"}
+              onRemoveFavorite={removeFavorites}
+            />
+          </div>
+        ))}
       </div>
     </>
   );
-   */
 };
 
 export default Favoritos;

@@ -4,7 +4,7 @@ import styles from "./Card.module.css";
 import { ThemeContext } from "../Components/contexts/ThemeContext";
 import { Link } from "react-router-dom";
 
-const Card = ({ img, name, username, id }) => {
+const Card = ({ img, name, username, id, onRemoveFavorite }) => {
 
   const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
   let enFavoritos = favoritos.some((favorito) => favorito.id === id);
@@ -29,6 +29,9 @@ const Card = ({ img, name, username, id }) => {
       localStorage.setItem("favoritos", JSON.stringify(favoritos));
     }
   };
+  const removeFavorites = () => {
+    onRemoveFavorite(id);
+  };
 
   return (
     <>    
@@ -37,7 +40,7 @@ const Card = ({ img, name, username, id }) => {
       <h3 className={styles.title}>{name}</h3>
       <p className={styles.description}>Username: {username}</p>
       <p>ID: {id}</p>
-      <button className={styles.button} onClick={addFavorito} >
+      <button className={styles.button} onClick={isFav ? removeFavorites : addFavorito} >
         {isFav ? "❤️  " : "🤍  "}
         {isFav ? "Remove Fav" : "Add Fav"}
       </button>

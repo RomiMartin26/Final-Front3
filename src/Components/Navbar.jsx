@@ -1,12 +1,10 @@
 import { useContext } from "react";
-import styles from './Navbar.module.css';
-//import { useThemeContext } from "./contexts/ThemeContext";
+import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
-//import ReactSwitch from "react-switch";
-//import { useState } from 'react';
 import { ThemeContext } from "../Components/contexts/ThemeContext";
 
 const Navbar = () => {
+  // Probe con Switch
   //const {contextTheme} = useThemeContext()
   // const {contextTheme, setContextTheme} = useThemeContext ()
 
@@ -18,11 +16,11 @@ const Navbar = () => {
     console.log(nextChecked)
   } */
 
-  const {theme, toggleTheme} = useContext(ThemeContext)
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
     <>
-    {/* <ReactSwitch 
+      {/* <ReactSwitch 
          onChange={handleSwitch}
          checked={checked}
          onColor="#86d3ff"
@@ -38,9 +36,13 @@ const Navbar = () => {
          id="material-switch"
 
          />       */}
-        <nav className={`${styles.navbar} ${theme === "dark" ? styles.themeDark : styles.themeLight}`}>
+      <nav
+        className={`${styles.navbar} ${
+          theme === "dark" ? styles.themeDark : styles.themeLight
+        }`}
+      >
         <div className={styles.navbar_container}>
-          <ul className='list'>
+          <ul className="list">
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -52,18 +54,14 @@ const Navbar = () => {
               <Link to="/Contacto">Contacto</Link>
             </li>
           </ul>
-          <div className={styles.btnTheme}> 
-            <button onClick={toggleTheme}>{theme === "dark" ? "🌞"  : "🌚" }</button>
-            {/* <span onClick={toggleTheme}>{theme === "dark" ? "🌞"  : "🌚" }</span> */}
-            {/* <p> Tema actual: {theme}</p> */}
+          <div className={styles.btnTheme}>
+            <button onClick={toggleTheme}>
+              {theme === "dark" ? "🌞" : "🌚"}
+            </button>
           </div>
-          {/* <div >
-          <button onClick={contextTheme}>Cambiar Tema</button>
-            <button onClick={() => theme.changeValue()}>Cambiar tema</button>
-          </div> */}
         </div>
-        </nav>
+      </nav>
     </>
   );
 };
-export default Navbar; 
+export default Navbar;

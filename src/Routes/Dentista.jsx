@@ -4,10 +4,9 @@ import { useParams } from "react-router-dom";
 const Dentista = () => {
   const { id } = useParams();
   const [user, setUser] = useState({});
-  // const [detail, setDetail] = useState(false);
 
   useEffect(() => {
-      const fetchUser = async () => {
+    const fetchUser = async () => {
       try {
         const response = await fetch(
           `https://jsonplaceholder.typicode.com/users/${id}`
@@ -21,10 +20,6 @@ const Dentista = () => {
 
     fetchUser();
   }, [id]);
-
-  /* const handleDetails = () => {
-    setDetail(!detail);
-  }; */
 
   if (!user) {
     return <div>Cargando...</div>;
@@ -40,10 +35,6 @@ const Dentista = () => {
           <p>Email: {user.email}</p>
           <p>Teléfono: {user.phone}</p>
           <p>Website: {user.website}</p>
-          {/* <button onClick={handleDetails}>
-            {detail ? "Ocultar detalles" : "Mostrar detalles"}
-          </button> */}
-          
         </div>
       )}
     </div>

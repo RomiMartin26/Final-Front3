@@ -8,13 +8,10 @@ import Favoritos from "./Routes/Favoritos";
 import Home from "./Routes/Home";
 import Dentista from "./Routes/Dentista";
 import "./App.css";
-import {ThemeContextProvider} from "./Components/contexts/ThemeContext";
 import { ThemeContext } from "./Components/contexts/ThemeContext";
-import ReactSwitch from "react-switch";
+//import ReactSwitch from "react-switch";
 
-
-const App =() => {
-
+const App = () => {
   //const {themeContext, toggleTheme} = useContext(ThemeContext)
 
   /* const {contextTheme, setContextTheme} = ThemeContext ();
@@ -27,11 +24,11 @@ const App =() => {
     console.log(nextChecked)
   } */
 
-  const {theme, toggleTheme} = useContext(ThemeContext)
-  
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   return (
     <>
-    {/* < ThemeContextProvider   >  */}
+      {/* < ThemeContextProvider   >  */}
 
       {/* <div id ={contextTheme}>
       <p>{contextTheme} Tema</p>
@@ -50,27 +47,23 @@ const App =() => {
           className="react-switch"
           id="material-switch"
  */}
-          {/* /> */}
-        <div className={`${theme === "dark" ? "theme-dark" : "theme-light" }`}>
+      {/* /> */}
+      <div className={`${theme === "dark" ? "theme-dark" : "theme-light"}`}>
+        <Navbar />
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/Contacto" element={<Contacto />} />
+            <Route path="/Favoritos" element={<Favoritos />} />
+            <Route path="/dentista/:id" element={<Dentista />} />
+            <Route path="*" element={<div>404</div>} />
+          </Routes>
 
-         <Navbar /> 
-        <div className="content"> 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Contacto" element={<Contacto />} />
-          <Route path="/Favoritos" element={<Favoritos />} />
-          <Route path="/dentista/:id" element={<Dentista />} />
-          <Route path="*" element={<div>404</div>} />
-        </Routes>
-        <p>Nuestros Odontologos </p>
-        <Footer />
-        </div> 
-        
-        </div>  
-         {/* </ThemeContextProvider>  */}
-      
+          <Footer />
+        </div>
+      </div>
     </>
   );
-}
+};
 
 export default App;
